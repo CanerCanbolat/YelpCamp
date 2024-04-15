@@ -33,16 +33,14 @@
         <div class="valid-feedback">Looks good!</div>
       </div>
       <div class="mb-3">
-        <label class="form-label" for="image">Image Url</label>
+        <label class="form-label" for="image">Add Image</label>
         <input
           class="form-control"
-          type="text"
+          type="file"
           id="image"
-          name="campground[image]"
-          value="<%= campground.image %>"
-          required
+          name="image"
+          multiple
         />
-        <div class="valid-feedback">Looks good!</div>
       </div>
       <div class="mb-3">
         <label for="price" class="from-label">Campground Price</label>
