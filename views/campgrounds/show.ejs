@@ -3,11 +3,6 @@
   href="/stylesheets/stars.css"
 />
 
-<script>
-  const mapToken = "<%-process.env.MAPBOX_TOKEN%>";
-  const campground= <%-JSON.stringify(campground)%>
-</script>
-
 <div class="row">
   <div class="col-6">
     <div class="card text-dark">
@@ -159,4 +154,10 @@
           <% } %>
   </div>
 </div>
+
+<script>
+  const mapToken = "<%-process.env.MAPBOX_TOKEN%>";
+  const campground= <%-JSON.stringify(campground)%>
+</script>
+
 <script src="/javascripts/showPageMap.js"></script>
