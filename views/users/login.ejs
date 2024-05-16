@@ -1,29 +1,46 @@
 <% layout("layouts/boilerplate") %>
-<h1>Login</h1>
-<form action="/login" method="post" class="validated-form" novalidate>
-  <div class="mb-3">
-    <label class="form-label" for="username">Username</label>
-    <input
-      class="form-control"
-      type="text"
-      id="username"
-      name="username"
-      placeholder="Username"
-      required
-    />
-    <div class="valid-feedback">Looks good!</div>
+
+<div class="container d-flex justify-content-center align-items-center">
+  <div class="row col-4">
+    <div class="card shadow">
+      <img
+        src="https://www.orcadreams.com/global/media/images/page-albums/tents/sm/steps.jpg"
+        alt=""
+        class="card-img-top rounded"
+      />
+      <div class="card-body">
+        <h5 class="card-title mb-3">Login</h5>
+        <form action="/login" method="post" class="validated-form" novalidate>
+          <div class="mb-3">
+            <label class="form-label" for="username">Username</label>
+            <input
+              class="form-control"
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Username"
+              autofocus
+              required
+            />
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="password">Password</label>
+            <input
+              class="form-control"
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+          <div class="d-grid">
+            <button class="btn btn-success">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
-  <div class="mb-3">
-    <label class="form-label" for="password">Password</label>
-    <input
-      class="form-control"
-      type="password"
-      id="password"
-      name="password"
-      placeholder="Password"
-      required
-    />
-    <div class="valid-feedback">Looks good!</div>
-  </div>
-  <button class="btn btn-success">Login</button>
-</form>
+</div>

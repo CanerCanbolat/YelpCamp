@@ -4,7 +4,7 @@
 />
 
 <div class="row">
-  <div class="col-6">
+  <div class="col-6 shadow">
     <div class="card text-dark">
     <%# Carousel %>
       <div id="campgroundCarousel" class="carousel slide ">
@@ -29,7 +29,7 @@
 
       <%# Campground infos %>
       
-      <div class="card-img-overlay d-inline-flex flex-column text-bg-primary p-3 w-50 h-25">
+      <div class="card-img-overlay d-inline-flex flex-column bg-dark-subtle p-3 w-25 h-25">
         <h5 class="card-title "><%= campground.title %></h5>
         <p class="card-text mb-3"><%= campground.description %></p>        
       </div>
@@ -39,33 +39,37 @@
         <li class="list-group-item">$<%= campground.price%>/night</li>
       </ul>
       <% if (currentUser && campground.author.equals(currentUser._id)) { %>
-        <div class="card-body">
-          <a href="/campgrounds/<%=campground._id%>/edit" class="card-link btn btn-info">Edit</a>
-          <form class="d-inline" 
-          action="/campgrounds/<%=campground._id%>?_method=DELETE" method="post">
-              <button class="btn btn-danger">Delete</button>
+        <div class="row card-body">
+              <div class="col d-grid">
+                <a href="/campgrounds/<%=campground._id%>/edit" class="card-link btn btn-info">Edit</a>                
+
+              </div>
+              <div class="col">
+                <form class="d-grid" 
+                action="/campgrounds/<%=campground._id%>?_method=DELETE" method="post">
+                    <button class="card-link btn btn-danger">Delete</button>          
+                </form>
+
+              </div>
           
-          </form>
-        </div>       
+          
+        </div>
       <% } %>
-      <div class="card-body">
-        <a class="card-link btn btn-primary" href="/campgrounds"
-          >All Campgrounds</a
-        >
+      <div class="card-body ">
+        <a class="card-link btn btn-primary d-grid" href="/campgrounds">All Campgrounds</a>
       </div>
     
     </div>
 
   </div>
-  <div class="col-6">
-    <div id="map" style="width: 400px; height: 300px">
+  <div class="col-6 shadow">
+    <div id="map" class="mb-3 rounded">
     </div>
       <% if (currentUser) { %>
        <h2>Leave a Review</h2>
         <form 
           action="/campgrounds/<%= campground._id %>/reviews"
-           method="post" class="mb-3 validated-form" novalidate>
-          <div class="mb-3">
+           method="post" class="mb-3 validated-form" novalidate>          
             <fieldset class="starability-growRotate">
               <input
             type="radio"
@@ -111,26 +115,25 @@
             value="5"
           />
           <label for="first-rate5" title="Amazing">5 stars</label>
-
-            </fieldset>
-          </div>
-            <div class="mb-3">
-              <label for="body" class="form-label">Review Text</label>
-              <textarea
-              class="form-control"
-              name="review[body]"
-              id="body"
-              cols="30"
-              rows="3"
-              required
-            ></textarea>
-            <div class="valid-feedback">Looks good!</div>
-            </div>
+        </fieldset>
+        <div class="mb-3">
+          <label for="body" class="form-label">Review Text</label>
+            <textarea
+          class="form-control"
+          name="review[body]"
+          id="body"
+          cols="30"
+          rows="3"
+          required
+          ></textarea>
+          <div class="valid-feedback">Looks good!</div>
+        </div>
+          
             <button class="btn btn-success">Submit</button>
           </form>            
       <% } %>
           <% for( let review of campground.reviews ) { %>
-            <div class="card mb-3">
+            <div class="card mb-3" >
               <div class="card-body">
                 <h5 class="card-title">Rating: <%=review.rating%></h5>
         
