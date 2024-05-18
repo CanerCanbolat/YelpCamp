@@ -41,31 +41,26 @@
       <% if (currentUser && campground.author.equals(currentUser._id)) { %>
         <div class="row card-body">
               <div class="col d-grid">
-                <a href="/campgrounds/<%=campground._id%>/edit" class="card-link btn btn-info">Edit</a>                
-
+                <a href="/campgrounds/<%=campground._id%>/edit" class="card-link btn btn-info">Edit</a>
               </div>
               <div class="col">
                 <form class="d-grid" 
                 action="/campgrounds/<%=campground._id%>?_method=DELETE" method="post">
                     <button class="card-link btn btn-danger">Delete</button>          
                 </form>
-
-              </div>
-          
-          
+              </div>         
         </div>
       <% } %>
       <div class="card-body ">
         <a class="card-link btn btn-primary d-grid" href="/campgrounds">All Campgrounds</a>
-      </div>
-    
+      </div>    
     </div>
-
   </div>
   <div class="col-6 shadow">
     <div id="map" class="mb-3 rounded">
     </div>
       <% if (currentUser) { %>
+        <%# Review rate %>
        <h2>Leave a Review</h2>
         <form 
           action="/campgrounds/<%= campground._id %>/reviews"
@@ -127,16 +122,14 @@
           required
           ></textarea>
           <div class="valid-feedback">Looks good!</div>
-        </div>
-          
+        </div>          
             <button class="btn btn-success">Submit</button>
           </form>            
       <% } %>
           <% for( let review of campground.reviews ) { %>
             <div class="card mb-3" >
               <div class="card-body">
-                <h5 class="card-title">Rating: <%=review.rating%></h5>
-        
+                <h5 class="card-title">Rating: <%=review.rating%></h5>        
                 <p class="starability-result" data-rating="<%= review.rating %>">
                   <%= review.rating %>
                 </p>
