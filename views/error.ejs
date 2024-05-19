@@ -19,7 +19,9 @@
         </svg>
         <h4 class="alert-heading"><%= err.message %></h4>
       </div>
+      <% if (process.env.NODE_ENV !== "production") { %>
       <p><%=err.stack %></p>
+      <% } %>
     </div>
   </div>
 </div>
